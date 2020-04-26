@@ -36,3 +36,9 @@
     transform: rotate(360deg);
   }
 }
+
+h1{
+  font-family: 'Bangers', cursive;
+  font-size: 72px;
+  color: purple;
+}
