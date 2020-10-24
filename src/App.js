@@ -9,7 +9,8 @@ class App extends Component {
 
     this.state = {
       monsters: [],
-      searchField: ''
+      searchField: '',
+      title: ''
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -21,18 +22,19 @@ class App extends Component {
       .then(users => this.setState({monsters: users}));
   }
 
-  handleChange = (e) => {
-    this.setState({searchField: e.target.value});
+  handleChange = (event) => {
+    this.setState({searchField: event.target.value, title: event.target.value});
   }
 
   render() {
-    const {monsters, searchField} = this.state;
+    const {monsters, searchField, title} = this.state;
     const filteredMonsters = monsters.filter(monsters =>
       monsters.name.toLowerCase().includes(searchField.toLowerCase())
     );
     return (
       <div className="App">
         <h1>Čudovišta, mačke i poneki robot</h1>
+        <h1>{title}</h1>
         <SearchBox
           placeholder='Претрага'
           handleChange={this.handleChange}
